@@ -6,7 +6,7 @@ const int SECONDS_OF_YEAR = 365 * 24 * 60 * 60; // seconds of one year
 const node_list_zeitgeist = [
   {
     'name': 'Zeitgeist (via Airalab)',
-    'ss58': 32,
+    'ss58': 73,
     'endpoint': 'wss://kusama.rpc.zeitgeist.network',
   },
 ];
@@ -27,4 +27,5 @@ const MaterialColor zeitgeist_black = const MaterialColor(
   },
 );
 
-const String genesis_hash_zeitgeist = '0x631ccc82a078481584041656af292834e1ae6daab61d2875b4dd0c14bb9b17bc';
+const String genesis_hash_zeitgeist =
+    '0x1bf2a2ecb4a868de66ea8610f2ce7c8c43706561b6476031315f6640fe38e060';

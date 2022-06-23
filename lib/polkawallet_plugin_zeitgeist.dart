@@ -18,7 +18,7 @@ class PluginZeitgeist extends PolkawalletPlugin {
       : basic = PluginBasicData(
           name: 'Zeitgeist',
           genesisHash: genesis_hash_zeitgeist,
-          ss58: 32,
+          ss58: 73,
           primaryColor: zeitgeist_black,
           gradientColor: Color(0xFF2948d3),
           backgroundImage: AssetImage(
