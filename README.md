@@ -1,0 +1,1 @@
+# polkawallet_plugin_zeitgeist
