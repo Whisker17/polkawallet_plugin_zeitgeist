@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 const int SECONDS_OF_DAY = 24 * 60 * 60; // seconds of one day
 const int SECONDS_OF_YEAR = 365 * 24 * 60 * 60; // seconds of one year
 
-const node_list_zeitgeist = [
+const zeitgeist_node_list = [
   {
     'name': 'Zeitgeist (via Zeitgeist PM)',
     'ss58': 73,
@@ -37,5 +37,5 @@ const MaterialColor zeitgeist_black = const MaterialColor(
   },
 );
 
-const String genesis_hash_zeitgeist =
+const String zeitgeist_genesis_hash =
     '0x1bf2a2ecb4a868de66ea8610f2ce7c8c43706561b6476031315f6640fe38e060';

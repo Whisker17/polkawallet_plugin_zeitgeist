@@ -17,7 +17,7 @@ class PluginZeitgeist extends PolkawalletPlugin {
   PluginZeitgeist()
       : basic = PluginBasicData(
           name: 'Zeitgeist',
-          genesisHash: genesis_hash_zeitgeist,
+          genesisHash: zeitgeist_genesis_hash,
           ss58: 73,
           primaryColor: zeitgeist_black,
           gradientColor: Color(0xFF2948d3),
@@ -41,15 +41,15 @@ class PluginZeitgeist extends PolkawalletPlugin {
 
   @override
   List<NetworkParams> get nodeList {
-    return node_list_zeitgeist.map((e) => NetworkParams.fromJson(e)).toList();
+    return zeitgeist_node_list.map((e) => NetworkParams.fromJson(e)).toList();
   }
 
   late Keyring keyring;
 
   @override
   final Map<String, Widget> tokenIcons = {
-    'XRT': Image.asset(
-        'packages/polkawallet_plugin_zeitgeist/assets/images/tokens/XRT.png'),
+    'ZTG': Image.asset(
+        'packages/polkawallet_plugin_zeitgeist/assets/images/tokens/ZTG.png'),
   };
 
   @override
