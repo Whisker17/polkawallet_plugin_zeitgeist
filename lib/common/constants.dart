@@ -5,9 +5,19 @@ const int SECONDS_OF_YEAR = 365 * 24 * 60 * 60; // seconds of one year
 
 const node_list_zeitgeist = [
   {
-    'name': 'Zeitgeist (via Airalab)',
+    'name': 'Zeitgeist (via Zeitgeist PM)',
     'ss58': 73,
-    'endpoint': 'wss://kusama.rpc.zeitgeist.network',
+    'endpoint': 'wss://rpc-0.zeitgeist.pm',
+  },
+  {
+    'name': 'Zeitgeist (via Dwellir)',
+    'ss58': 73,
+    'endpoint': 'wss://zeitgeist-rpc.dwellir.com',
+  },
+  {
+    'name': 'Zeitgeist (via OnFinality)',
+    'ss58': 73,
+    'endpoint': 'wss://zeitgeist.api.onfinality.io/public-ws',
   },
 ];
 
