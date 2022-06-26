@@ -18,7 +18,7 @@ class PluginZeitgeist extends PolkawalletPlugin {
       : basic = PluginBasicData(
           name: 'Zeitgeist',
           genesisHash: zeitgeist_genesis_hash,
-          ss58: 73,
+          ss58: zeitgeist_ss58,
           primaryColor: zeitgeist_black,
           gradientColor: Color(0xFF2948d3),
           backgroundImage: AssetImage(
@@ -68,24 +68,53 @@ class PluginZeitgeist extends PolkawalletPlugin {
   @override
   Map<String, WidgetBuilder> getRoutes(Keyring keyring) {
     return {
-      LaunchPage.route: (context) => LaunchPage(this),
-      ReadDatalogPage.route: (context) => ReadDatalogPage(this),
-      WriteDatalogPage.route: (context) => WriteDatalogPage(this),
+      TxConfirmPage.route: (_) => TxConfirmPage(
+          this,
+          keyring,
+          _service.getPassword as Future<String> Function(
+              BuildContext, KeyPairData)),
+
+      // staking pages
+
+      // governance pages
+
+      // prediction markets pages
     };
   }
 
   @override
   Future<String>? loadJSCode() => null;
 
+  late PluginStore _store;
+  late PluginApi _service;
+  PluginStore get store => _store;
+  PluginApi get service => _service;
+
+  final StoreCache _cache;
+
   @override
   Future<void> onWillStart(Keyring keyring) async {
+    await GetStorage.init(plugin_zeitgeist_storage_key);
+
+    _store = PluginStore(_cache);
+
     try {
       loadBalances(keyring.current);
-      print('zeitgeist plugin cache data loaded');
+
+      _store.staking.loadCache(keyring.current.pubKey);
+      _store.gov.clearState();
+      _store.gov.loadCache();
+      print('Zeitgeist plugin cache data loaded');
     } catch (err) {
       print(err);
-      print('load zeitgeist cache data failed');
+      print('load Zeitgeist cache data failed');
     }
-    this.keyring = keyring;
+
+    _service = PluginApi(this, keyring);
+  }
+
+  @override
+  Future<void> onAccountChanged(KeyPairData acc) async {
+    _store.staking.loadAccountCache(acc.pubKey);
   }
 }

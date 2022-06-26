@@ -39,3 +39,5 @@ const MaterialColor zeitgeist_black = const MaterialColor(
 
 const String zeitgeist_genesis_hash =
     '0x1bf2a2ecb4a868de66ea8610f2ce7c8c43706561b6476031315f6640fe38e060';
+
+const int zeitgeist_ss58 = 73;
