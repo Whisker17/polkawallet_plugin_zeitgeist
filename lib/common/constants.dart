@@ -6,20 +6,22 @@ const int SECONDS_OF_YEAR = 365 * 24 * 60 * 60; // seconds of one year
 const zeitgeist_node_list = [
   {
     'name': 'Zeitgeist (via Zeitgeist PM)',
-    'ss58': 73,
+    'ss58': zeitgeist_ss58,
     'endpoint': 'wss://rpc-0.zeitgeist.pm',
   },
   {
     'name': 'Zeitgeist (via Dwellir)',
-    'ss58': 73,
+    'ss58': zeitgeist_ss58,
     'endpoint': 'wss://zeitgeist-rpc.dwellir.com',
   },
   {
     'name': 'Zeitgeist (via OnFinality)',
-    'ss58': 73,
+    'ss58': zeitgeist_ss58,
     'endpoint': 'wss://zeitgeist.api.onfinality.io/public-ws',
   },
 ];
+
+const home_nav_items = ['staking'];
 
 const MaterialColor zeitgeist_black = const MaterialColor(
   0xFF222222,
@@ -39,5 +41,5 @@ const MaterialColor zeitgeist_black = const MaterialColor(
 
 const String zeitgeist_genesis_hash =
     '0x1bf2a2ecb4a868de66ea8610f2ce7c8c43706561b6476031315f6640fe38e060';
-
+const String network_name_zeitgeist = 'zeitgeist';
 const int zeitgeist_ss58 = 73;

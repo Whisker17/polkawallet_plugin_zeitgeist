@@ -54,15 +54,24 @@ class PluginZeitgeist extends PolkawalletPlugin {
 
   @override
   List<HomeNavItem> getNavItems(BuildContext context, Keyring keyring) {
-    return [
-      HomeNavItem(
-        text: basic.name!.toUpperCase(),
-        icon: Container(),
-        iconActive: Container(),
-        isAdapter: true,
-        content: MetaHubPanel(this),
-      ),
-    ];
+    return home_nav_items.map((e) {
+      final dic = I18n.of(context)!.getDic(i18n_full_dic_zeitgeist, 'common')!;
+      return HomeNavItem(
+        text: dic[e]!,
+        icon: SvgPicture.asset(
+          'packages/polkawallet_plugin_zeitgeist/assets/images/public/nav_$e.svg',
+          color: Theme.of(context).disabledColor,
+        ),
+        iconActive: SvgPicture.asset(
+          'packages/polkawallet_plugin_zeitgeist/assets/images/public/nav_$e.svg',
+          color: basic.primaryColor,
+        ),
+        // Todo
+        // add gov
+        // content: e == 'staking' ? Staking(this, keyring) : Gov(this),
+        content: Staking(this, keyring),
+      );
+    }).toList();
   }
 
   @override
@@ -75,7 +84,20 @@ class PluginZeitgeist extends PolkawalletPlugin {
               BuildContext, KeyPairData)),
 
       // staking pages
-
+      StakePage.route: (_) => StakePage(this, keyring),
+      BondExtraPage.route: (_) => BondExtraPage(this, keyring),
+      ControllerSelectPage.route: (_) => ControllerSelectPage(this, keyring),
+      SetControllerPage.route: (_) => SetControllerPage(this, keyring),
+      UnBondPage.route: (_) => UnBondPage(this, keyring),
+      RebondPage.route: (_) => RebondPage(this, keyring),
+      SetPayeePage.route: (_) => SetPayeePage(this, keyring),
+      RedeemPage.route: (_) => RedeemPage(this, keyring),
+      PayoutPage.route: (_) => PayoutPage(this, keyring),
+      NominatePage.route: (_) => NominatePage(this, keyring),
+      StakingDetailPage.route: (_) => StakingDetailPage(this, keyring),
+      RewardDetailPage.route: (_) => RewardDetailPage(this, keyring),
+      ValidatorDetailPage.route: (_) => ValidatorDetailPage(this, keyring),
+      ValidatorChartsPage.route: (_) => ValidatorChartsPage(this, keyring),
       // governance pages
 
       // prediction markets pages
