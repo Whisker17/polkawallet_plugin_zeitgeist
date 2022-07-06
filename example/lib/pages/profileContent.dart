@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:polkawallet_plugin_kusama_example/pages/selectListPage.dart';
-import 'package:polkawallet_plugin_kusama_example/utils/i18n.dart';
-import 'package:polkawallet_sdk/api/apiKeyring.dart';
+import 'package:polkawallet_plugin_dbc_example/pages/selectListPage.dart';
+import 'package:polkawallet_plugin_dbc_example/utils/i18n.dart';
+import 'package:polkawallet_sdk/utils/i18n.dart';
 import 'package:polkawallet_sdk/api/types/networkParams.dart';
+import 'package:polkawallet_sdk/api/apiKeyring.dart';
 import 'package:polkawallet_sdk/plugin/index.dart';
 import 'package:polkawallet_sdk/storage/keyring.dart';
 import 'package:polkawallet_sdk/storage/types/keyPairData.dart';
-import 'package:polkawallet_sdk/utils/i18n.dart';
 import 'package:polkawallet_ui/components/roundedButton.dart';
 
 class ProfileContent extends StatefulWidget {
@@ -191,7 +191,7 @@ class _ProfileContentState extends State<ProfileContent> {
       final KeyPairData acc =
           await widget.network.sdk.api.keyring.addContact(widget.keyring, {
         'name': 'external_test',
-        'address': '14fpQHev6kcQxiW49e5Cg4VgY8QeKwLxwfbAHg81ro8r8AnD',
+        'address': '5E4PMnuFV64QhXfgpZdNu7j7Mj9SqVyjCuGyoq9JLNjrVp1M',
         'observation': true,
       });
       setState(() {

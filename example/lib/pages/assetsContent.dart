@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:polkawallet_ui/components/borderedTitle.dart';
 import 'package:polkawallet_ui/components/roundedCard.dart';
@@ -27,7 +29,7 @@ class _AssetsContentState extends State<AssetsContent> {
     return Observer(
       builder: (_) {
         final symbol = (widget.network.networkState.tokenSymbol ?? [''])[0];
-        final decimals = (widget.network.networkState.tokenDecimals ?? [10])[0];
+        final decimals = (widget.network.networkState.tokenDecimals ?? [12])[0];
 
         final balancesInfo = widget.network.balances.native;
         final tokens = widget.network.balances.tokens;

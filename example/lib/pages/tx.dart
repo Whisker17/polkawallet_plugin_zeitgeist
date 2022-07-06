@@ -1,10 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:polkawallet_plugin_kusama/polkawallet_plugin_kusama.dart';
+import 'package:polkawallet_plugin_dbc/polkawallet_plugin_dbc.dart';
 
 class NetworkSelectPage extends StatefulWidget {
   NetworkSelectPage(this.network);
 
-  final PluginKusama network;
+  final PluginDBC network;
 
   static const String route = '/tx';
 

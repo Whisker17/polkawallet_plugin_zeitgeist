@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:polkawallet_plugin_kusama/polkawallet_plugin_kusama.dart';
-import 'package:polkawallet_plugin_kusama_example/pages/assetsContent.dart';
-import 'package:polkawallet_plugin_kusama_example/pages/homePage.dart';
-import 'package:polkawallet_plugin_kusama_example/pages/profileContent.dart';
-import 'package:polkawallet_plugin_kusama_example/pages/selectListPage.dart';
+import 'package:polkawallet_plugin_dbc/polkawallet_plugin_dbc.dart';
+import 'package:polkawallet_plugin_dbc_example/pages/assetsContent.dart';
+import 'package:polkawallet_plugin_dbc_example/pages/homePage.dart';
+import 'package:polkawallet_plugin_dbc_example/pages/profileContent.dart';
+import 'package:polkawallet_plugin_dbc_example/pages/selectListPage.dart';
 import 'package:polkawallet_sdk/api/types/networkParams.dart';
 import 'package:polkawallet_sdk/plugin/index.dart';
 import 'package:polkawallet_sdk/storage/keyring.dart';
@@ -19,8 +19,7 @@ import 'package:polkawallet_ui/pages/txConfirmPage.dart';
 
 void main() {
   final _plugins = [
-    PluginKusama(name: 'polkadot'),
-    PluginKusama(),
+    PluginDBC(),
   ];
 
   runApp(MyApp(_plugins));
@@ -97,7 +96,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<void> _startPlugin() async {
-    await _keyring.init([2]);
+    await _keyring.init([42]);
 
     await _network.beforeStart(_keyring);
     final connected = await _network.start(_keyring);
@@ -170,7 +169,7 @@ class _MyAppState extends State<MyApp> {
         _changeLang);
     final AssetsContent assets = AssetsContent(_network, _keyring);
     return MaterialApp(
-      title: 'Polkawallet Plugin Kusama Demo',
+      title: 'Polkawallet Plugin DBC Demo',
       theme: _theme ?? _getAppTheme(widget.plugins[0].basic.primaryColor),
       localizationsDelegates: [
         AppLocalizationsDelegate(_locale ?? Locale('en', '')),
